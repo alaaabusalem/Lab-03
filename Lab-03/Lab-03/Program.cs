@@ -17,7 +17,8 @@ namespace Lab_03
 		{
 
 			string Process = "";
-			while (Process != "10")
+			
+			while (Process !="10")
 			{
 
 				Console.WriteLine("Please Enter the number of the Process\r\n1.Product\r\n" +
@@ -39,7 +40,7 @@ namespace Lab_03
 				}
 				////////////
 				///Average 
-				if (Process == "2")
+			   else if  (Process == "2")
 				{
 					Console.WriteLine("Please Enter Number between 2 and 10");
 					string number = Console.ReadLine();
@@ -68,12 +69,12 @@ namespace Lab_03
 
 				}
 
-				if (Process == "3")
+				else if (Process == "3")
 				{
 					PrintStars(5);
 				}
 
-				if (Process == "4")
+				else if (Process == "4")
 				{
 					int[] array = new int[] { 2, 2, 2, 3, 1, 1, 5, 100, 0, 0, 2, 5, 2, 2, 2, 0, 0, 0, 0, 0, 0 };
 
@@ -84,11 +85,11 @@ namespace Lab_03
 					}
 					else
 					{
-						Console.WriteLine($"the most reurn number is {answer}");
+						Console.WriteLine($"the most return number is {answer}");
 					}
 
 				}
-				if (Process == "5")
+				else if (Process == "5")
 				{
 					try
 					{
@@ -116,7 +117,7 @@ namespace Lab_03
 						Console.WriteLine($"the Array is empty: {ex}");
 					}
 				}
-				if (Process == "6")
+				else if (Process == "6")
 				{
 					
 						Console.WriteLine("Please Enter the word:");
@@ -137,7 +138,7 @@ namespace Lab_03
 						}
 					}
 
-				if (Process == "7")
+				else if (Process == "7")
 				{
 					string path = "../../../words.txt";
 					string answer = ReadTextFile(path);
@@ -150,7 +151,7 @@ namespace Lab_03
 						Console.WriteLine($"File data is =>>> {answer}");
 					}
 				}
-				if (Process == "8")
+				else if (Process == "8")
 				{
 					string path = "../../../words.txt";
 					string answer = DeletOneWordAndReaddIt(path);
@@ -167,7 +168,7 @@ namespace Lab_03
 					}
 				}
 
-				if (Process == "9")
+				else if (Process == "9")
 				{
 					Console.WriteLine("Please Enter the word:");
 					string word = Console.ReadLine();
@@ -184,8 +185,7 @@ namespace Lab_03
 
 					}
 				}
-				//DeletOneWordAndReaddIt
-				///////////////////////////
+				
 				else
 				{
 					Console.WriteLine("Sorry, You did'nt Enter a number from the list");
