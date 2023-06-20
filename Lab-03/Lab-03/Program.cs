@@ -6,14 +6,14 @@ using System.Linq.Expressions;
 
 namespace Lab_03
 {
-	internal class Program
+	public class Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			UserInterface();
 		}
 
-		private static void UserInterface()
+		public static void UserInterface()
 		{
 
 			string Process = "";
@@ -22,7 +22,7 @@ namespace Lab_03
 
 				Console.WriteLine("Please Enter the number of the Process\r\n1.Product\r\n" +
 				"2.Averge\r\n3.Print stars\r\n4.Max value in a given Array\r\n5.Max value in the arry\r\n" +
-				"6.add word to text file\r\n7.Read file content\r\n8.Delete a word from afile and rewrite it in the end\r\n9.Enter a sentence to show each word count");
+				"6.add word to text file\r\n7.Read file content\r\n8.Delete a word from afile and rewrite it in the end\r\n9.Enter a sentence to show each word count\r\n10.Exitcd");
 				Process = Console.ReadLine();
 				/////////
 				if (Process == "1")
@@ -95,13 +95,13 @@ namespace Lab_03
 						Console.WriteLine($"Please Enter Array of Numbers to find the Max number");
 						string number = Console.ReadLine();
 						string[] arrayString = number.Split(" ");
-						List<int> arrayInt = new List<int>();
+						int[] arrayInt = new int[arrayString.Length];
 						for (int i = 0; i < arrayString.Length; i++)
 						{
 							int ParseValue = 0;
 							if (Int32.TryParse(arrayString[i], out ParseValue))
 							{
-								arrayInt.Add(ParseValue);
+								arrayInt[i]=(ParseValue);
 							}
 						}
 						int answer = MaxInArray(arrayInt);
@@ -196,7 +196,7 @@ namespace Lab_03
 
 
 
-		private static int Product(string values)
+		public static int Product(string values)
 		{
 			int result = 1;
 
@@ -227,19 +227,22 @@ namespace Lab_03
 			else { return 0; }
 		}
 		////////////////////////////////////////////////
-		private static int Averge(int[] valuesArray)
+		public static decimal Averge(int[] valuesArray)
 		{
-
+			
 			int sum = 0;
 			for (int i = 0; i < valuesArray.Length; i++)
 			{
 
 				sum = sum + valuesArray[i];
 			}
+			if (sum==0) { return 0; }
+			else { 
 			return (sum / valuesArray.Length);
+			}
 		}
 		//////////////////
-		private static void PrintStars(int rows)
+		public static void PrintStars(int rows)
 		{
 			for (int i = 1; i <= rows; i++)
 			{
@@ -323,9 +326,9 @@ namespace Lab_03
 		}
 
 		/////////////////
-		public static int MaxInArray(List<int> array)
+		public static int MaxInArray(int[] array)
 		{
-			if (array.Count == 0) { return -1; }
+			if (array.Length == 0) { return -1; }
 			int maxValue = array[0];
 			foreach (int item in array)
 			{
@@ -397,16 +400,22 @@ namespace Lab_03
 
 		public static string NumOdcharsInEachWord(string words) {
 
+			if (words.Length == 0)
+			{
+				return "";
+			}
+			else { 
 			string[] array= words.Split(" ");
 			string answer = "[ ";
 			for (int i = 0; i < array.Length; i++)
 			{
 				int size= array[i].Length;
-				answer += $"{array[i]}: {size}  ";
+				answer += $"{array[i]}: {size} ";
 			}
 			answer += "]";
 			return answer;
-			
+			}
+
 
 
 		}
